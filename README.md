@@ -2,8 +2,10 @@
 csv-reader will take in a string parameter that is a path to a csv file of insurance enrollees, sort the enrollees by last name, first name, and write them to individual files for each insurance company.
 
 ## Assumptions
+The file used for this program is in the project home directory: Availity_Mock_Data.csv</br>
 The assumption is that the file being parsed is in the following csv format:</br>
-User_id,Name,Version,Insurance_Company
+User_id,Name,Version,Insurance_Company</br>
+
 
 
 ## Installation and Execution
