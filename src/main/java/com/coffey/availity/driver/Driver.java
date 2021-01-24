@@ -39,7 +39,12 @@ public class Driver {
 			System.exit(0);
 		
 		try (CSVReader csvReader = new CSVReaderBuilder(new FileReader(args[0])).withSkipLines(1).build();) {    
+			
 			insuranceMap = parser.parseFile(csvReader);	    
+			
+			Map<String, List<Enrollee>> sortedMap = sorter.sortMap(insuranceMap);
+			
+			writer.createOutputFiles(sortedMap);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found: " +  args[0]);
 		} catch (IOException e) {
@@ -48,9 +53,7 @@ public class Driver {
 			System.out.println("Something occured whith a validator");
 		}
 		
-		Map<String, List<Enrollee>> sortedMap = sorter.sortMap(insuranceMap);
-		
-		writer.createOutputFiles(sortedMap);
+
 		
 	}
 
